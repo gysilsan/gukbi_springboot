@@ -13,5 +13,6 @@ public class IndexController {
 	@GetMapping("/gugu")
 	public String gugu() {
 		return "gugu";
+		
 	}
 }
