@@ -1,6 +1,7 @@
 package com.ezen.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -11,8 +12,8 @@ public class IndexController {
 	}
 	
 	@GetMapping("/gugu")
-	public String gugu() {
-		return "gugu";
-		
+	public String gugu(Model model) {
+		model.addAttribute("dan", 3);
+		return "gugu"; // /WEB-INF/jsp/*.jsp
 	}
 }
