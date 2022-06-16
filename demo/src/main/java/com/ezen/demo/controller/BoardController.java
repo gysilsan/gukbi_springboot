@@ -20,8 +20,8 @@ public class BoardController {
 	@PostMapping("/res")
 	@ResponseBody
 	public String save(Board board) {
-		System.out.println("Title: " + board.getTitle());
-		System.out.println("Contents: " + board.getContents());
+		System.out.println("title: " + board.getTitle());
+		System.out.println("contents: " + board.getContents());
 		return "{\"title\":"+board.getTitle()+", "+"\"contents\":"+board.getContents()+"}";
 	}
 }
