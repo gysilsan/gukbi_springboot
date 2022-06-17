@@ -10,7 +10,7 @@
 </script>
 </head>
 <body>
-	<form id="form" method="post" action="/board/res">
+	<form id="form" method="post" action="/board/save">
 		<div>제목<input type="text" name="title"></div>
 		<div><textarea name="contents" rows="5" cols="20" placeholder="내용.."></textarea></div>
 		<button type="reset">취소</button>

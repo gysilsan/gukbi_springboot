@@ -1,5 +1,8 @@
 package com.ezen.demo.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,11 +20,17 @@ public class BoardController {
 		return "board_inputform";
 	}
 	
-	@PostMapping("/res")
+	@PostMapping("/save")
 	@ResponseBody
-	public String save(Board board) {
+	public Map<String, Object> save(Board board) {
 		System.out.println("title: " + board.getTitle());
 		System.out.println("contents: " + board.getContents());
-		return "{\"title\":"+board.getTitle()+", "+"\"contents\":"+board.getContents()+"}";
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("title", board.getTitle());
+		map.put("contents", board.getContents());
+		
+		return map;
+//		return "{\"title\":"+board.getTitle()+", "+"\"contents\":"+board.getContents()+"}";
 	}
 }
