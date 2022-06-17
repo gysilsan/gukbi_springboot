@@ -1,5 +1,7 @@
 package com.ezen.demo.model;
 
+import java.util.Objects;
+
 public class Board {
 	private int num;
 	private String title;
@@ -8,6 +10,19 @@ public class Board {
 	private java.sql.Date wdate;
 	private int pcode;
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(num);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		Board other = (Board) obj;
+		return this.num == other.num;
+	}
+	@Override
+	public String toString() {
+		return String.format("%s|%s", title, contents);
+	}
 	
 	public int getNum() {
 		return num;
