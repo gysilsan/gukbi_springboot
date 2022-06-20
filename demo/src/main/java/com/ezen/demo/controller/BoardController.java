@@ -18,6 +18,7 @@ import com.ezen.demo.service.BoardService;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
+	
 	@Autowired
 	private BoardService svc;
 	

@@ -7,10 +7,12 @@ public class User {
 	private String pwd;
 	
 	public User() {}
+	
 	public User(String uid, String pwd) {
 		this.uid = uid;
 		this.pwd = pwd;
 	}
+	
 	public User(String[] strArr) {
 		this(strArr[0], strArr[1]);
 	}

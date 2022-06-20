@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ezen.demo.dao.BoardDAO;
 import com.ezen.demo.model.Board;
-import com.ezen.demo.model.BoardDAO;
 
 @Service
 public class BoardService {

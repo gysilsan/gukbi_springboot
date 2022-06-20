@@ -1,10 +1,12 @@
-package com.ezen.demo.model;
+package com.ezen.demo.dao;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 import org.springframework.stereotype.Repository;
+
+import com.ezen.demo.model.User;
 
 @Repository
 public class UserDAO {

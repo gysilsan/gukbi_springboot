@@ -1,10 +1,12 @@
-package com.ezen.demo.model;
+package com.ezen.demo.dao;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import org.springframework.stereotype.Repository;
+
+import com.ezen.demo.model.Board;
 
 @Repository
 public class BoardDAO {
