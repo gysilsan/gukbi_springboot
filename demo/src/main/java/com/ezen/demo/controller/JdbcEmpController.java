@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.demo.dao.JdbcEmpDao;
 import com.ezen.demo.model.Emp;
@@ -20,24 +22,17 @@ public class JdbcEmpController {
 	@Autowired
 	private JdbcEmpDao dao;
 	
-	@GetMapping("/all")
+	@GetMapping("/list")
 	public String getEmpList(Model model) {
 		List<Emp> list = dao.getListAll();
 		model.addAttribute("list", list);
-		return "/jdbc/empList";
+		return "/emp/empList";
 	}
 	
 	@GetMapping("/dept")
 	public String getListByDeptNo() {
 		List<Emp> list = dao.getListByDeptNo(20);
 		return list.toString();
-	}
-	
-	@GetMapping("/detail/{empno}")
-	public String detail(@PathVariable("empno") int empno, Model model) {
-		Emp emp = dao.getEmpById(empno);
-		model.addAttribute("emp", emp);
-		return "/jdbc/empDetail";
 	}
 	
 	@GetMapping("/add")
@@ -64,10 +59,25 @@ public class JdbcEmpController {
 		return "key="+key;
 	}
 	
-	@GetMapping("/update")
-	public String update(@RequestParam(name ="empno") int empno) {
-		boolean updated = dao.update(empno);
-		return "updated="+updated;
+	@GetMapping("/one/{empno}")
+	public String detail(@PathVariable("empno") int empno, Model model) {
+		Emp emp = dao.getEmpById(empno);
+		model.addAttribute("emp", emp);
+		return "/emp/detail";
+	}
+	
+	@GetMapping("/edit")
+	public String edit(@RequestParam(name ="empno") int empno, Model model) {
+		Emp emp = dao.getEmpById(empno);
+		model.addAttribute("emp", emp);
+		return "/emp/edit";
+	}
+	
+	@PostMapping("/update")
+	@ResponseBody
+	public String update(Emp emp) {
+		boolean updated = dao.update(emp);
+		return "{\"updated\":"+updated+"}";
 	}
 	
 //	@GetMapping("/update/{empno}/{deptno}/{sal}")

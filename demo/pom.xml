@@ -40,40 +40,47 @@
          <artifactId>spring-boot-starter-test</artifactId>
          <scope>test</scope>
       </dependency>
+      
       <!-- To compile JSP files -->
-      <dependency>
+        <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
-      </dependency>
-      <dependency>
+        </dependency>
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
-      </dependency>
-      <!-- Reload -->
-      <dependency>
+        </dependency>
+        <!-- Reload -->
+        <dependency>
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-devtools</artifactId>
          <scope>runtime</scope>
          <optional>true</optional>
       </dependency>
-      <!--JdbcTemplate-->
       <dependency>
-	   <groupId>com.oracle.database.jdbc</groupId>
-	   <artifactId>ojdbc8</artifactId>
-	   <scope>12.2.0.1</scope>
-	</dependency>
-	
-	<dependency>
-	   <groupId>org.springframework.boot</groupId>
-	   <artifactId>spring-boot-starter-data-jdbc</artifactId>
-	</dependency>
-	
-	<dependency>
-	   <groupId>org.springframework.boot</groupId>
-	   <artifactId>spring-boot-starter-jdbc</artifactId>
-	</dependency>
+      <groupId>com.oracle.database.jdbc</groupId>
+      <artifactId>ojdbc8</artifactId>
+      <scope>12.2.0.1</scope>
+   </dependency>
+
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jdbc</artifactId>
+   </dependency>
+
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.mybatis.spring.boot</groupId>
+       <artifactId>mybatis-spring-boot-starter</artifactId>
+       <version>2.2.2</version>
+   </dependency>
+   
    </dependencies>
+
    <build>
       <plugins>
          <plugin>
