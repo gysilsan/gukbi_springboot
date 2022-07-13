@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.demo.mappers.EmpPLSQLMapper">
+
+	<resultMap id="empMap" type="hashMap"/>
+	<resultMap id="empVO" type="com.ezen.demo.model.Emp" />
+	
+	<select id="getEnameByEmpno" statementType="CALLABLE" parameterType="map">
+		{
+			CALL ename_by_empno(
+				#{empno},
+				#{ename, mode=OUT, jdbcType=VARCHAR, javaType=String, resultMap=empMap}
+			)
+		}
+	</select>
+	
+	<select id="getEmpByEmpno" statementType="CALLABLE" parameterType="map">
+		{
+			CALL emp_by_empno(
+				#{empno},
+				#{ename, mode=OUT, jdbcType=VARCHAR, javaType=String, resultMap=empMap},
+				#{deptno, mode=OUT, jdbcType=NUMERIC, javaType=Integer, resultMap=empMap},
+				#{hiredate, mode=OUT, jdbcType=DATE, javaType=java.sql.Date, resultMap=empMap}
+			)
+		}
+	</select>
+	
+	<select id="getVoByEmpno" statementType="CALLABLE" parameterType="com.ezen.demo.model.Emp">
+		{
+			CALL emp_by_empno(
+				#{empno},
+				#{ename, mode=OUT, jdbcType=VARCHAR, javaType=String, resultMap=empVO},
+				#{deptno, mode=OUT, jdbcType=NUMERIC, javaType=Integer, resultMap=empVO},
+				#{hiredate, mode=OUT, jdbcType=DATE, javaType=java.sql.Date, resultMap=empVO}
+			)
+		}
+	</select>
+	
+	<select id="getEmpByDeptno" statementType="CALLABLE" parameterType="map">
+		{
+			CALL emp_by_deptno(
+				#{deptno},
+				#{resultList, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=empVO}
+			)
+		}
+	</select>
+	
+	<select id="getVoByDeptno" statementType="CALLABLE" parameterType="com.ezen.demo.model.Emp">
+		{
+			CALL emp_by_deptno(
+				#{deptno},
+				#{list, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=empVO}
+			)
+		}
+	</select>
+	
+</mapper>

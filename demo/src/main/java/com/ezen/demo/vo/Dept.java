@@ -32,5 +32,4 @@ public class Dept {
 	public void setLoc(String loc) {
 		this.loc = loc;
 	}
-	
 }
